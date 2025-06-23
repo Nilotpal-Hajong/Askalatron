@@ -1,3 +1,4 @@
+/* Global styles */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -5,6 +6,7 @@ body {
   color: #e0e0e0;
 }
 
+/* Header styles */
 header {
   text-align: center;
   padding: 3rem 1rem 1.5rem;
@@ -12,6 +14,18 @@ header {
   position: relative;
 }
 
+header h1 {
+  font-size: 3rem;
+  margin: 0;
+  color: #6ef7c9;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+/* Navigation styles */
 nav {
   position: absolute;
   top: 1rem;
@@ -38,6 +52,7 @@ nav ul {
   list-style: none;
   border-radius: 6px;
   box-shadow: 0 0 12px rgba(110, 247, 201, 0.12);
+  z-index: 1000;
 }
 
 nav ul li {
@@ -53,17 +68,7 @@ nav:hover ul {
   display: block;
 }
 
-header h1 {
-  font-size: 3rem;
-  margin: 0;
-  color: #6ef7c9;
-}
-
-header p {
-  font-size: 1.2rem;
-  color: #ccc;
-}
-
+/* Section and card styles */
 section {
   max-width: 900px;
   margin: 2rem auto;
@@ -94,9 +99,10 @@ section {
   text-decoration: none;
 }
 
+/* Footer styles */
 footer {
   text-align: center;
   padding: 1.5rem;
   font-size: 0.9rem;
   color: #888;
-}
+  }
