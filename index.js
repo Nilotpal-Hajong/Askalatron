@@ -19,11 +19,12 @@ function Header() {
   );
 }
 
-function Card({ title, children, link, linkText }) {
+function Card({ title, content, link, linkText, children }) {
   return (
     <div className="card">
       <h2>{title}</h2>
-      <p>{children}</p>
+      {content && <p>{content}</p>}
+      {children}
       {link && (
         <a className="button" href={link}>
           {linkText}
@@ -36,9 +37,12 @@ function Card({ title, children, link, linkText }) {
 function Section() {
   return (
     <section>
-      <Card title="🔥 Now In Development: DeepNetra" link="/deepnetra.html" linkText="Preview DeepNetra">
-        The spider-inspired aluminium frame for deep digital creators. Modular, LED-ready, and CNC-cut — optimized for ultimate builds.
-      </Card>
+      <Card
+        title="🔥 Now In Development: DeepNetra"
+        content="The spider-inspired aluminium frame for deep digital creators. Modular, LED-ready, and CNC-cut — optimized for ultimate builds."
+        link="/deepnetra.html"
+        linkText="Preview DeepNetra"
+      />
 
       <div className="card">
         <h2>🕸️ Upcoming Products</h2>
@@ -50,13 +54,19 @@ function Section() {
         </ul>
       </div>
 
-      <Card title="🧾 Open Files & Downloads" link="/docs/index.md" linkText="View Technical Resources">
-        Explore DXF, SVG, and Arduino firmware for skeleton building and expansion.
-      </Card>
+      <Card
+        title="🧾 Open Files & Downloads"
+        content="Explore DXF, SVG, and Arduino firmware for skeleton building and expansion."
+        link="/docs/index.md"
+        linkText="View Technical Resources"
+      />
 
-      <Card title="🤝 Connect" link="mailto:youremail@example.com" linkText="Contact Us">
-        Want to collaborate, build, or distribute Askalaton frameworks?
-      </Card>
+      <Card
+        title="🤝 Connect"
+        content="Want to collaborate, build, or distribute Askalaton frameworks?"
+        link="mailto:youremail@example.com"
+        linkText="Contact Us"
+      />
     </section>
   );
 }
