@@ -4,22 +4,209 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Askalaton | Open Skeleton Framework</title>
-
-  <!-- Link to external stylesheet -->
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0d0d0d;
+      color: #e0e0e0;
+    }
+    header {
+      text-align: center;
+      padding: 3rem 1rem 1.5rem;
+      background: linear-gradient(135deg, #111, #333);
+      position: relative;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+      color: #6ef7c9;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+    nav {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+    }
+    nav button {
+      background: #6ef7c9;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    nav ul {
+      display: none;
+      position: absolute;
+      top: 2.5rem;
+      left: 0;
+      background: #1a1a1a;
+      padding: 1rem;
+      list-style: none;
+      border-radius: 6px;
+      box-shadow: 0 0 12px rgba(110, 247, 201, 0.12);
+      z-index: 1000;
+    }
+    nav ul li {
+      margin: 0.5rem 0;
+    }
+    nav ul li a {
+      color: #6ef7c9;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav:hover ul {
+      display: block;
+    }
+    section {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .card {
+      background: #1a1a1a;
+      border: 1px solid #444;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 12px rgba(110, 247, 201, 0.12);
+    }
+    .card h2 {
+      color: #6ef7c9;
+      margin-top: 0;
+    }
+    .card ul {
+      padding-left: 1.2rem;
+    }
+    .button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background: #6ef7c9;
+      color: #000;
+      font-weight: bold;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .button:hover {
+      background: #4ee4b4;
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+  </style>
 </head>
 <body>
-
-  <!-- React root element -->
   <div id="root"></div>
 
-  <!-- React and Babel CDNs -->
   <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
-  <!-- Your React app -->
-  <script type="text/babel" src="index.js"></script>
+  <script type="text/babel">
+    function Header() {
+      return (
+        <header>
+          <nav>
+            <button>Menu ▾</button>
+            <ul>
+              <li><a href="/index.html">Home</a></li>
+              <li><a href="/deepnetra.html">DeepNetra</a></li>
+              <li><a href="/shop.html">Shop</a></li>
+              <li><a href="/marketplace.html">Marketplace</a></li>
+              <li><a href="/docs/index.md">Docs</a></li>
+              <li><a href="/contact.html">Contact</a></li>
+              <li><a href="/about.html">About</a></li>
+            </ul>
+          </nav>
+          <h1>Askalaton</h1>
+          <p>Cyber Exoskeletons for the Future of Personal Computing</p>
+        </header>
+      );
+    }
 
+    function Card({ title, content, link, linkText, children }) {
+      return (
+        <div className="card">
+          <h2>{title}</h2>
+          {content && <p>{content}</p>}
+          {children}
+          {link && (
+            <a className="button" href={link}>
+              {linkText}
+            </a>
+          )}
+        </div>
+      );
+    }
+
+    function Section() {
+      return (
+        <section>
+          <Card
+            title="🔥 Now In Development: DeepNetra"
+            content="The spider-inspired aluminium frame for deep digital creators. Modular, LED-ready, and CNC-cut — optimized for ultimate builds."
+            link="/deepnetra.html"
+            linkText="Preview DeepNetra"
+          />
+
+          <div className="card">
+            <h2>🕸️ Upcoming Products</h2>
+            <ul>
+              <li><strong>ChaturNetra:</strong> Dome-shaped quad-LED intelligence pod (Coming Soon)</li>
+              <li><strong>AghoriFrame:</strong> Vertical totem-style CPU tower (Q3 2025)</li>
+              <li><strong>Vanantakar:</strong> Foldable open-air PC rig for outdoor + remote work</li>
+              <li><strong>Sparshan:</strong> Wall-mount cyber altar for focused creators</li>
+            </ul>
+          </div>
+
+          <Card
+            title="🧾 Open Files & Downloads"
+            content="Explore DXF, SVG, and Arduino firmware for skeleton building and expansion."
+            link="/docs/index.md"
+            linkText="View Technical Resources"
+          />
+
+          <Card
+            title="🤝 Connect"
+            content="Want to collaborate, build, or distribute Askalaton frameworks?"
+            link="mailto:youremail@example.com"
+            linkText="Contact Us"
+          />
+        </section>
+      );
+    }
+
+    function Footer() {
+      return (
+        <footer>
+          <p>© 2025 Askalaton • Cyberframe Powered Creation</p>
+        </footer>
+      );
+    }
+
+    function App() {
+      return (
+        <>
+          <Header />
+          <Section />
+          <Footer />
+        </>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
 </body>
-</html>
+  </html>
+  
